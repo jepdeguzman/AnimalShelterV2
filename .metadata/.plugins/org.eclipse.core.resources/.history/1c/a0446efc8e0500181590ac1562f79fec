@@ -1,0 +1,9 @@
+package com.employeeapp.data;
+
+public class EmployeeApp_ComputeSalary {
+	
+	public void computeSalary(EmployeeAppData[] employeeMainArray) {
+		
+	}
+
+}

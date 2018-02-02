@@ -1,0 +1,53 @@
+package com.employeeapp.data;
+
+import com.employeeapp.ui.EmployeeAppUI;
+
+public class EmployeeApp_ComputeSalary {
+	
+	public void computeSalary(EmployeeAppData[] employeeMainArray) {
+		for (int kownter = 0; kownter < employeeMainArray.length; kownter++) {
+			if(employeeMainArray[kownter] == null) {
+				System.out.println();break;
+			}else {
+				EmployeeAppData employeeData = employeeMainArray[kownter];
+				if(employeeData.employeeType.equalsIgnoreCase("Software Developer")) {
+					((EmployeeApp_SoftwareDev) employeeMainArray[kownter]).computeSalary();
+				}else if(employeeData.employeeType.equalsIgnoreCase("Software Tester")) {
+					((EmployeeApp_SoftwareTester) employeeMainArray[kownter]).computeSalary();
+				}else if(employeeData.employeeType.equalsIgnoreCase("HR")) {
+					((EmployeeApp_HR) employeeMainArray[kownter]).computeSalary();
+				}
+			}
+		}
+		return;
+	}
+	
+	public void displaySalary(EmployeeAppData[] employeeMainArray) {
+		mainLoop: for (int i = 0; i < employeeMainArray.length;) {
+			if(employeeMainArray[i] == null) {
+				if(i==0) {
+					System.out.println("NO EMPLOYEES FOUND. ENTER EMPLOYEES FIRST.");
+					EmployeeAppUI empAppUI = new EmployeeAppUI();
+					empAppUI.mt_displayMainMenu();
+				}
+				break;
+			}else {
+				computeSalary(employeeMainArray);
+				subLoop: for(int o = 0; o < employeeMainArray.length; o++) {
+					if(employeeMainArray[o] == null) {
+						break subLoop;
+					}else {
+						if (employeeMainArray[o].HOURS_WORKED == 0.0) {
+							System.out.println(employeeMainArray[o].firstName + " " + employeeMainArray[o].lastName + "HAS WORKED" + employeeMainArray[o].HOURS_WORKED + "HOURS TODAY");
+						}else {
+							System.out.println(employeeMainArray[o].employeeType);
+							System.out.println(employeeMainArray[o].firstName +" "+employeeMainArray[o].lastName);
+						}
+						
+					}
+				}
+			}
+		}
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.pointwest.java.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class FilmDao {
+	
+	public void getFilms() {
+		
+		try {
+			Class.forName("com.mysql.jbc.Driver");
+			String db = "jdbc:mysql://172.26.83.193:3306/sakila";
+			String user = "newuser";
+			String password = "password";
+			Connection conn = DriverManager.getConnection(db,user,password);
+		} catch (ClassNotFoundException e) {
+			System.out.println("ASDSADSADASD");
+			e.printStackTrace();
+		}
+
+	}
+
+}

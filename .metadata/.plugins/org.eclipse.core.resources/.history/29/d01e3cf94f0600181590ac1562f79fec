@@ -1,0 +1,10 @@
+package com.corejava.io;
+
+import java.io.File;
+
+public class IO_main {
+	public static void main(String[] args) {
+	File file = new File("C:\\Users\\Jeremy De Guzman\\Documents\\sample.txt");
+	
+	}
+}

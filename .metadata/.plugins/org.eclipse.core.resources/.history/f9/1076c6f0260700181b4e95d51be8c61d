@@ -1,0 +1,16 @@
+package com.pointwest.java.dao;
+
+public class FilmDao {
+	
+	public void getFilms() {
+		
+		
+		try {
+			Class.forName("com.mysql.jbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("ASDSADSADASD");
+			e.printStackTrace();
+		}
+	}
+
+}

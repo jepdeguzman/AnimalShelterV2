@@ -1,0 +1,14 @@
+package com.pointwest.java.ui;
+
+import com.pointwest.java.manager.FilmManager;
+
+public class FilmUI {
+	
+	public void printFilm() {
+		
+		FilmManager filmMan = new FilmManager();
+		List<FilmBeans> films
+		
+	}
+
+}

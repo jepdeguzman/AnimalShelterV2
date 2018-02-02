@@ -1,0 +1,18 @@
+package com.pointwest.java.main;
+
+import org.apache.log4j.Logger;
+
+import com.pointwest.java.dao.FilmDao;
+
+public class Main {
+	Logger logger  = new Logger.getLogger(Main.class);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		FilmDao filmdao = new FilmDao();
+		filmdao.getFilms();
+		System.out.println(filmdao.ctr);
+	}
+
+}

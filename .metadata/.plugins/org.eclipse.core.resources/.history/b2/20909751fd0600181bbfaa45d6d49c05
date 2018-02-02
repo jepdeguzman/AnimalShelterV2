@@ -1,0 +1,15 @@
+package com.animalshelterv2.main;
+
+import com.animalshelterv2.ui.ASAV2_UI;
+
+public class ASAV2_Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ASAV2_UI asav2_ui = new ASAV2_UI();
+		
+		asav2_ui.mt_displayHomePage();
+	}
+
+}

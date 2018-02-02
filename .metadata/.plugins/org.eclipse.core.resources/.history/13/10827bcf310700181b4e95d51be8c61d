@@ -1,0 +1,20 @@
+package com.pointwest.java.ui;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.pointwest.java.beans.FilmBeans;
+import com.pointwest.java.manager.FilmManager;
+
+public class FilmUI {
+	
+	public void printFilm() {
+		
+		FilmManager filmMan = new FilmManager();
+		List<FilmBeans> films = new ArrayList<FilmBeans>();
+		System.out.println();
+		
+		
+	}
+
+}

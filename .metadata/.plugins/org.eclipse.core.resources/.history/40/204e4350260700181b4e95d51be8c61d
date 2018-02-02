@@ -1,0 +1,9 @@
+package com.pointwest.java.dao;
+
+public class FilmDao {
+	
+	public void getFilms() {
+		Class.forName("com.mysql.jbc.Driver");
+	}
+
+}

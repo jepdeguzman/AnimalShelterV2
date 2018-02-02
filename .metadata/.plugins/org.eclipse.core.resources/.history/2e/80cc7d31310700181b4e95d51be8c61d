@@ -1,0 +1,20 @@
+package com.pointwest.java.beans;
+
+public class FilmBeans {
+
+	public void setDescription(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTitle(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLength(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

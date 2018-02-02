@@ -1,0 +1,20 @@
+package com.animalshelterv2.main;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.chainsaw.Main;
+
+import com.animalshelterv2.ui.ASAV2_UI;
+
+public class ASAV2_Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Logger myLogger = Logger.getLogger(Main.class);
+		
+		ASAV2_UI asav2_ui = new ASAV2_UI();
+		
+		asav2_ui.mt_displayHomePage();
+	}
+
+}

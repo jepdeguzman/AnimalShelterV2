@@ -1,0 +1,11 @@
+package com.pointwest.java.ui;
+
+public class FilmUI {
+	
+	public void printFilm() {
+		
+		FilmManager filMan = new FilManager();
+		
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.employeeapp.data;
+
+import com.employeeapp.data.EmployeeAppData;
+
+public class EmployeeApp_DoWork {
+	
+	public void doWork(EmployeeAppData[] employeeMainArray) {
+		for(int kawnter = 0; kawnter < employeeMainArray.length; kawnter++) {
+			if(employeeMainArray[kawnter] == null) {
+				if(kawnter == 0) {
+					
+				}
+			}
+		}
+		
+	}
+
+}

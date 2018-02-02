@@ -1,0 +1,244 @@
+package com.animalshelter.ui;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+import com.animalshelter.data.AnimalShelter_Cat;
+import com.animalshelter.data.AnimalShelter_Data;
+import com.animalshelter.data.AnimalShelter_Dog;
+import com.animalshelter.data.AnimalShelter_Parrot;
+
+
+public class AnimalShelter_UI {
+	
+	public static int counter = 0;
+	
+	//public static String genderPronoun;
+	AnimalShelter_Dog asDog = new AnimalShelter_Dog();
+	AnimalShelter_Cat asCat = new AnimalShelter_Cat();
+	AnimalShelter_Parrot asParrot = new AnimalShelter_Parrot();
+	public List<String> animalList = new ArrayList<String>(10);
+	public ListIterator<String> animalItr = null;
+	public ListIterator<String> animalItrTwo = null;
+
+	
+	public void mt_mainMenu() {
+		System.out.println("WELCOME TO JC'S ANIMAL SHELTER!");
+		System.out.println("--------------------------------");
+		System.out.println("[1] ADD ANIMAL");
+		System.out.println("[2] REMOVE ANIMAL");
+		System.out.println("[3] VIEW ALL ANIMALS");
+		System.out.print("CMD: ");
+		Scanner scanMainMenuChoice = new Scanner(System.in);
+		int mainMenuChoice = scanMainMenuChoice.nextInt();
+		switch(mainMenuChoice) {
+		case 1:
+			mt_addAnimalMenu();
+			break;
+		case 2:
+			animalItr = animalList.listIterator();
+			System.out.println("WHO WOULD YOU LIKE TO DELETE?");
+			 while(animalItrTwo.hasNext()){
+			       System.out.println(animalItrTwo.next());
+			    }
+			 System.out.print("CMD: ");
+			 Scanner scanDeleteChoice = new Scanner(System.in);
+			 String deleteChoice = scanDeleteChoice.next();
+			 asDog.animalSerialNumberCapsule = asDog.animalType + asDog.animalSerialNumber;
+			 if(asDog.animalSerialNumberCapsule == deleteChoice) {
+				 animalItrTwo.remove();
+				 System.out.println("ANIMAL WITH "+asDog.animalSerialNumberCapsule+" HAS BEEN DELETED.");
+			 }else {
+				 System.out.println("INVLD INPT");
+				 mt_mainMenu();
+			 }
+			break;
+		case 3:
+			animalItr = animalList.listIterator();
+			System.out.println("MEET OUR ADORABLE ANIMALS!");
+			 while(animalItr.hasNext()){
+			       System.out.println(animalItr.next());
+			    }
+			 System.out.println("WHAT WOULD YOU LIKE TO DO NEXT?");
+			 System.out.println("[1] GO BACK TO MAIN");
+			 System.out.println("[2] EXIT");
+			 System.out.print("CMD: ");
+			 Scanner scanDoNextChoice = new Scanner(System.in);
+			 int doNextChoice = scanDoNextChoice.nextInt();
+			 switch(doNextChoice) {
+			 case 1:
+				 mt_mainMenu();
+				 break;
+			 case 2:
+				 System.out.println("HAVE A NICE DAY!");
+				 break;
+				 default:
+					 System.out.println("INVLD INPT");
+					 mt_mainMenu();
+			 }
+			 break;
+			default:
+				System.out.println("INVLD INPT");
+				mt_mainMenu();
+		}
+		
+	}
+	
+	public void mt_addAnimalMenu() {
+		System.out.println("WHAT ANIMAL ARE YOU TRYING TO ADD?");
+		System.out.println("[1] DOG");
+		System.out.println("[2] CAT");
+		System.out.println("[3] PARROT");
+		System.out.print("CMD: ");
+		Scanner scanAddAnimalChoice = new Scanner(System.in);
+		int addAnimalChoice = scanAddAnimalChoice.nextInt();
+		switch(addAnimalChoice) {
+		case 1:
+			System.out.println();
+			asDog.animalType = "DOG";
+			asDog.animalSound = "arf arf!";
+			if(counter<10) {
+				while(counter <10) {
+					//asDog.animalSerialNumber = serial;
+				System.out.print("DOG'S NAME: ");
+				Scanner scanDogName = new Scanner(System.in);
+				asDog.animalName = scanDogName.next();
+				System.out.print("DOG'S AGE: ");
+				Scanner scanDogAge = new Scanner(System.in);
+				asDog.animalAge = scanDogAge.nextInt();
+				System.out.print("DOG'S GENDER: ");
+				Scanner scanDogGender = new Scanner(System.in);
+				asDog.animalGender = scanDogGender.next();
+				counter++;
+				asDog.animalSerialNumber = counter;
+				asDog.animalSerialNumberCapsule = asDog.animalType + asDog.animalSerialNumber;
+				animalList.add(asDog.animalSerialNumberCapsule+": "+asDog.animalSound+" HI! MY NAME IS "+asDog.animalName+"! I'M A "+asDog.animalGender+" DOG - AND I'M ALREADY "+asDog.animalAge+" YEAR/S OLD!");
+				System.out.println();
+				System.out.println("----------------------------");
+				System.out.println("COUNTER REFERENCE: "+counter);
+				System.out.println("----------------------------");
+				
+				String dogAppend = "SERIAL NUMBER: DOG"+asDog.animalSerialNumber;
+				System.out.println(dogAppend);
+				System.out.println("DOG'S NAME: "+asDog.animalName);
+				System.out.println("DOG'S AGE: "+asDog.animalAge);
+				System.out.println("DOG'S GENDER: "+asDog.animalGender);
+				System.out.println("ANIMAL TYPE: "+asDog.animalType);
+
+				mt_askIfAddMore();}
+			}else if(counter == 10) {
+					System.out.println("THE ANIMAL SHELTER IS NOW FULL. THANK YOU!");
+					System.out.println("WOULD YOU LIKE TO DELETE SOME ANIMALS OR VIEW THEM ALL?");
+					System.out.println("[1] DELETE");
+					System.out.println("[2] VIEW");
+					System.out.print("CMD: ");
+					break;
+				}
+			break;
+		case 2:
+			System.out.println();
+			asCat.animalType = "CAT";
+			asCat.animalSound = "meow meow..";
+			if(counter<10) {
+				while(counter <10) {
+				System.out.print("CAT'S NAME: ");
+				Scanner scanCatName = new Scanner(System.in);
+				asCat.animalName = scanCatName.next();
+				System.out.print("CAT'S AGE: ");
+				Scanner scanCatAge = new Scanner(System.in);
+				asCat.animalAge = scanCatAge.nextInt();
+				System.out.print("CAT'S GENDER: ");
+				Scanner scanCatGender = new Scanner(System.in);
+				asCat.animalGender = scanCatGender.next();
+				counter++;
+				asCat.animalSerialNumber = counter;
+				asCat.animalSerialNumberCapsule = asCat.animalType + asCat.animalSerialNumber;
+				animalList.add(asCat.animalSerialNumberCapsule+": "+asCat.animalSound+" HI! MY NAME IS "+asCat.animalName+"! I'M A "+asCat.animalGender+" CAT - AND I'M ALREADY "+asCat.animalAge+" YEAR/S OLD!");
+				System.out.println();
+				System.out.println("----------------------------");
+				System.out.println("COUNTER REFERENCE: "+counter);
+				System.out.println("----------------------------");
+				
+				System.out.println("SERIAL NUMBER: CAT"+asCat.animalSerialNumber);
+				System.out.println("CAT'S NAME: "+asCat.animalName);
+				System.out.println("CAT'S AGE: "+asCat.animalAge);
+				System.out.println("DOG'S GENDER: "+asCat.animalGender);
+				System.out.println("ANIMAL TYPE: "+asCat.animalType);
+
+				mt_askIfAddMore();}
+			}else if(counter == 10) {
+					System.out.println("THE ANIMAL SHELTER IS NOW FULL. THANK YOU!");
+					System.out.println("WOULD YOU LIKE TO DELETE SOME ANIMALS OR VIEW THEM ALL?");
+					System.out.println("[1] DELETE");
+					System.out.println("[2] VIEW");
+					System.out.print("CMD: ");
+					break;
+				}
+			
+			break;
+		case 3:
+			System.out.println();
+			asParrot.animalType = "PAR";
+			asParrot.animalSound = "kru kru kru!";
+			if(counter<10) {
+				while(counter <10) {
+				System.out.print("PARROT'S NAME: ");
+				Scanner scanParrotName = new Scanner(System.in);
+				asParrot.animalName = scanParrotName.next();
+				System.out.print("PARROT'S AGE: ");
+				Scanner scanParrotAge = new Scanner(System.in);
+				asParrot.animalAge = scanParrotAge.nextInt();
+				System.out.print("PARROT'S GENDER: ");
+				Scanner scanParrotGender = new Scanner(System.in);
+				asParrot.animalGender = scanParrotGender.next();
+				counter++;
+				asParrot.animalSerialNumber = counter;
+				asParrot.animalSerialNumberCapsule = asParrot.animalType + asCat.animalSerialNumber;
+				animalList.add(asParrot.animalSerialNumberCapsule+": "+asParrot.animalSound+" HI! MY NAME IS "+asParrot.animalName+"! I'M A "+asParrot.animalGender+" PARROT - AND I'M ALREADY "+asParrot.animalAge+" YEAR/S OLD!");
+				System.out.println();
+				System.out.println("----------------------------");
+				System.out.println("COUNTER REFERENCE: "+counter);
+				System.out.println("----------------------------");
+
+				System.out.println("SERIAL NUMBER: PAR"+asParrot.animalSerialNumber);
+				System.out.println("PARROT'S NAME: "+asParrot.animalName);
+				System.out.println("PARROT'S AGE: "+asParrot.animalAge);
+				System.out.println("PARROT'S GENDER: "+asParrot.animalGender);
+				System.out.println("ANIMAL TYPE: "+asParrot.animalType);
+
+				mt_askIfAddMore();}
+			}else if(counter == 10) {
+					System.out.println("THE ANIMAL SHELTER IS NOW FULL. THANK YOU!");
+					System.out.println("WOULD YOU LIKE TO DELETE SOME ANIMALS OR VIEW THEM ALL?");
+					System.out.println("[1] DELETE");
+					System.out.println("[2] VIEW");
+					System.out.print("CMD: ");
+					break;
+				}
+			break;
+			default:
+		}
+	}
+	
+	public void mt_askIfAddMore() {
+		System.out.println();
+		System.out.println("WOULD YOU LIKE TO ADD A NEW ANIMAL?");
+		System.out.println("[1] YES");
+		System.out.println("[2] NO");
+		System.out.print("CMD: ");
+		Scanner scanAskIfAddMoreChoice = new Scanner(System.in);
+		int askIfAddMoreChoice = scanAskIfAddMoreChoice.nextInt();
+			if(askIfAddMoreChoice == 1) {
+				System.out.println();
+				System.out.println("ADDING MORE ANIMALS!");
+				mt_addAnimalMenu();
+			}else if(askIfAddMoreChoice == 2) {
+				System.out.println();
+				System.out.println("ALRIGHT! GOING BACK TO MAIN MENU.");
+				mt_mainMenu();
+			}
+	}
+	
+}

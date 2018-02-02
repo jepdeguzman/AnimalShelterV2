@@ -1,0 +1,11 @@
+package com.employeeapp.data;
+
+import com.employeeapp.data.EmployeeAppData;
+
+public class EmployeeApp_DoWork {
+	
+	public void doWork(EmployeeAppData[] employeeArray) {
+		
+	}
+
+}

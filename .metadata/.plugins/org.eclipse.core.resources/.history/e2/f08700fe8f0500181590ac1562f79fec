@@ -1,0 +1,22 @@
+package com.employeeapp.data;
+
+public class EmployeeApp_ComputeSalary {
+	
+	public void computeSalary(EmployeeAppData[] employeeMainArray) {
+		for (int employeeMainArray[kownter] = 0; kownter < employeeMainArray.length; kownter++) {
+			if(employeeMainArray[kownter] == null) {
+				System.out.println();break;
+			}else {
+				EmployeeAppData employeeData = employeeMainArray[kownter];
+				if(employeeData.employeeType.equalsIgnoreCase("Software Developer")) {
+					((EmployeeApp_SoftwareDev) employeeMainArray[kownter]).computeSalary();
+				}else if(employeeData.employeeType.equalsIgnoreCase("Software Tester")) {
+					((EmployeeApp_SoftwareTester) employeeMainArray[kownter]).computeSalary();
+				}else if(employeeData.employeeType.equalsIgnoreCase("HR")) {
+					((EmployeeApp_HR) employeeMainArray[kownter]).computeSalary();
+				}
+			}
+		}
+	}
+
+}

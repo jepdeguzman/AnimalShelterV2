@@ -1,0 +1,20 @@
+package com.corejava.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
+public class IO_main {
+	public static void main(String[] args) {
+	File file = new File("C:\\Users\\Jeremy De Guzman\\Documents\\sample.txt");
+	
+	try {
+		PrintWriter writer = new PrintWriter(file);
+		
+		writer.println("HELLO WORLD");
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+}

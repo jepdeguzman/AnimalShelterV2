@@ -1,0 +1,11 @@
+package com.pointwest.java.beans;
+
+public class FilmBeans {
+	
+	private String title;
+	private String length;
+	private String description;
+
+
+
+}

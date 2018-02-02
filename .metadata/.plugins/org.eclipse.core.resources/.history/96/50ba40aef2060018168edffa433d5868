@@ -1,0 +1,14 @@
+package com.animalshelter.main;
+
+import com.animalshelter.ui.AnimalShelter_UI;
+
+public class AnimalShelter_Main {
+
+	
+public static void main(String[] args) {
+	AnimalShelter_UI asUI = new AnimalShelter_UI();
+	asUI.mt_mainMenu();
+}
+
+
+}

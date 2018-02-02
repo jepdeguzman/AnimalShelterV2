@@ -1,0 +1,28 @@
+package com.corejava.maps;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Maps_CoreJAva {
+	
+	public static void main(String[] args) {
+		Map<String, String>	emp_map = new HashMap<String, String>();
+		emp_map.put("1001", "Jayriz Liwanag");
+		emp_map.put("1002", "Jose Reyes");
+		emp_map.keySet();
+		
+		System.out.println("Size of Map: " + emp_map.size());
+		
+	/*	emp_map.clear();
+		System.out.println("Size of Map after Clear: "+emp_map.size());*/
+		
+		System.out.println("Employee 1001 exist? :" + emp_map.containsKey("1001"));
+		System.out.println("Employee 1003 exist? :" + emp_map.containsKey("1003"));
+		System.out.println("Employee int 1001 exist? :" + emp_map.containsKey(1001));
+		System.out.println("Map is empty? "+emp_map.isEmpty());
+		
+		emp_map.remove("1002");
+		System.out.println("Size of Map after 1002 was removed: " + emp_map.size());
+		}
+
+}

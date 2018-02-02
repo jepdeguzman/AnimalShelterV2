@@ -1,0 +1,179 @@
+package com.animalshelterv2.ui;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.animalshelterv2.beans.ASAV2_dog;
+import com.animalshelterv2.manager.ASAV2_manager;
+
+public class ASAV2_UI {
+	public static ASAV2_dog asav2_dog = new ASAV2_dog();
+	public static ASAV2_manager asav2_man = new ASAV2_manager();
+	
+	public static Map<Integer, String> catShelterMap = new LinkedHashMap<Integer, String>();
+	public static Map<Integer, String> parShelterMap = new LinkedHashMap<Integer, String>();
+
+	public static boolean emptyCatAnimalShelterMap = catShelterMap.isEmpty();
+	public static boolean emptyParAnimalShelterMap = parShelterMap.isEmpty();
+	
+	public static void mt_displayHomePage(){
+		System.out.println("---");
+		System.out.println("WELCOME TO JC'S ANIMAL SHELTER");
+		System.out.println("WHICH SHELTER WOULD YOU LIKE TO VISIT?");
+		System.out.println("[1] DOG SHELTER");
+		System.out.println("[2] CAT SHELTER");
+		System.out.println("[3] PARROT SHELTER");
+		System.out.print("CMD: ");
+		Scanner scanHomePageChoice = new Scanner(System.in);
+		int homePageChoice = scanHomePageChoice.nextInt();
+		switch(homePageChoice) {
+		case 1:
+			mt_displayDogShelterMenu();
+			break;
+		case 2:
+			mt_displayCatShelterMenu();
+			break;
+		case 3:
+			mt_displayParrotShelterMenu();
+			break;
+		default:
+		}
+	}
+	
+	public static void mt_displayDogShelterMenu() {
+		if(asav2_man.emptyDogAnimalShelterMap == true) {
+				System.out.println("---");
+			//	System.out.println("IS EMPTY? "+animalShelterMap.isEmpty());
+				System.out.println("WELCOME TO THE DOG SHELTER!");
+				System.out.println("MENU:");
+				System.out.println("[1] ADD DOG");
+				System.out.println("[0] GO BACK TO HOME PAGE");
+				System.out.print("CMD: ");
+				Scanner scanEmptyChoice = new Scanner(System.in);
+				int emptyChoice = scanEmptyChoice.nextInt();
+				if(emptyChoice == 1) {
+					mt_displayAddDog();
+				}else if(emptyChoice == 0) {
+					mt_displayHomePage();
+				}else {
+					System.out.println("INVLD INPUT");
+				}
+			}else if(asav2_man.emptyDogAnimalShelterMap == false) {
+				System.out.println("---");
+				System.out.println("WELCOME TO THE DOG SHELTER!");
+				System.out.println("MENU:");
+				System.out.println("[1] ADD DOG");
+				System.out.println("[2] REMOVE A DOG");
+				System.out.println("[3] VIEW ALL DOGS");
+				System.out.println("[0] GO BACK TO HOME PAGE");
+				System.out.print("CMD: ");
+				Scanner scanNotEmptyChoice = new Scanner(System.in);
+				int notEmptyChoice = scanNotEmptyChoice.nextInt();
+				if(notEmptyChoice == 1) {
+					
+				}else if(notEmptyChoice == 2) {
+					
+				}else if(notEmptyChoice == 3) {
+					Iterator<Map.Entry<Integer, String>> iteratorDogMap = asav2_man.dogShelterMap.entrySet().iterator();
+					while (iteratorDogMap.hasNext()) {
+						Map.Entry<Integer, String> pair = iteratorDogMap.next();
+						System.out.print("KEY: "+pair.getKey());
+						System.out.print(", Value: "+pair.getValue());
+						System.out.println();
+					}
+				}else {
+					System.out.println("INVLD INPUT");
+				}
+			}
+	}
+	
+	public static void mt_displayCatShelterMenu() {
+		if(emptyCatAnimalShelterMap) {
+			System.out.println("---");
+		//	System.out.println("IS EMPTY? "+animalShelterMap.isEmpty());
+			System.out.println("WELCOME TO THE CAT SHELTER!");
+			System.out.println("MENU:");
+			System.out.println("[1] ADD CAT");
+			System.out.println("[0] GO BACK TO HOME PAGE");
+			System.out.print("CMD: ");
+			Scanner scanEmptyChoice = new Scanner(System.in);
+			int emptyChoice = scanEmptyChoice.nextInt();
+			if(emptyChoice == 1) {
+				
+			}else if(emptyChoice == 0) {
+				
+			}else {
+				System.out.println("INVLD INPUT");
+			}
+		}else if(emptyCatAnimalShelterMap = false) {
+			System.out.println("---");
+			System.out.println("WELCOME TO THE CAT SHELTER!");
+			System.out.println("MENU:");
+			System.out.println("[1] CAT DOG");
+			System.out.println("[2] REMOVE A CAT");
+			System.out.println("[3] VIEW ALL CATS");
+			System.out.println("[0] GO BACK TO HOME PAGE");
+			System.out.print("CMD: ");
+			Scanner scanNotEmptyChoice = new Scanner(System.in);
+			int notEmptyChoice = scanNotEmptyChoice.nextInt();
+			if(notEmptyChoice == 1) {
+				
+			}else if(notEmptyChoice == 0) {
+				
+			}else {
+				System.out.println("INVLD INPUT");
+			}
+		}
+	}
+	
+	public static void mt_displayParrotShelterMenu() {
+		if(emptyParAnimalShelterMap) {
+			System.out.println("---");
+		//	System.out.println("IS EMPTY? "+animalShelterMap.isEmpty());
+			System.out.println("WELCOME TO THE PARROT SHELTER!");
+			System.out.println("MENU:");
+			System.out.println("[1] ADD PARROT");
+			System.out.println("[0] GO BACK TO HOME PAGE");
+			System.out.print("CMD: ");
+			Scanner scanEmptyChoice = new Scanner(System.in);
+			int emptyChoice = scanEmptyChoice.nextInt();
+			if(emptyChoice == 1) {
+				
+			}else if(emptyChoice == 0) {
+				
+			}else {
+				System.out.println("INVLD INPUT");
+			}
+		}else if(emptyParAnimalShelterMap = false) {
+			System.out.println("---");
+			System.out.println("WELCOME TO THE PARROT SHELTER!");
+			System.out.println("MENU:");
+			System.out.println("[1] ADD PARROT");
+			System.out.println("[2] REMOVE A PARROT");
+			System.out.println("[3] VIEW ALL PARROT");
+			System.out.println("[0] GO BACK TO HOME PAGE");
+			System.out.print("CMD: ");
+			Scanner scanNotEmptyChoice = new Scanner(System.in);
+			int notEmptyChoice = scanNotEmptyChoice.nextInt();
+			if(notEmptyChoice == 1) {
+				
+			}else if(notEmptyChoice == 0) {
+				
+			}else {
+				System.out.println("INVLD INPUT");
+			}
+		}
+	}
+
+	public static void mt_displayAddDog() {
+		System.out.println("---");
+		System.out.println("ADD DOG PAGE");
+		asav2_man.mt_addDog();
+		//mt_addDog();
+	}
+	
+
+}

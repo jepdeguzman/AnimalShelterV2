@@ -1,0 +1,18 @@
+package com.employeeapp.main;
+
+import com.employeeapp.ui.EmployeeAppUI;
+
+public class EmployeeAppMain {
+
+	public boolean repeat = true;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		EmployeeAppUI empAppUI = new EmployeeAppUI();
+		while(repeat) {
+		empAppUI.mt_displayMainMenu();
+		repeat = EmployeeAppUI.mt_continueWith();
+		}
+	}
+
+}

@@ -1,0 +1,35 @@
+package com.pointwest.java.ui;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+import com.pointwest.java.beans.FilmBeans;
+import com.pointwest.java.dao.FilmDao;
+import com.pointwest.java.manager.FilmManager;
+
+public class FilmUI {
+	
+	public void printFilm() {
+		
+		FilmManager filmMan = new FilmManager();
+		FilmDao fDao = new FilmDao();
+		List<FilmBeans> films = filmMan.getFilm();
+		
+		ListIterator<FilmBeans> filmitr = films.listIterator();
+		
+		for(FilmBeans filmsone : films) {
+			System.out.println(filmsone.getTitle()+"\t"+filmsone.getDescription()+"\t"+filmsone.getLength());
+		}
+		
+/*		 while(filmitr.hasNext()){
+			 filmMan.getFilm();
+			 System.out.println(filmitr.next());
+		    }*/
+		
+/*		System.out.println(fDao.getString("title")+""+fDao.rs.getString("description")+"\t"+fDao.rs.getString("length"));*/
+		
+		
+	}
+
+}

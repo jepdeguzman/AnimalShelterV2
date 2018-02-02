@@ -1,0 +1,12 @@
+package com.pointwest.java.manager;
+
+import java.util.List;
+
+import com.pointwest.java.dao.FilmDao;
+
+public class FilmManager {
+
+	public List<FilmDao> getFilm(){
+		
+	}
+}

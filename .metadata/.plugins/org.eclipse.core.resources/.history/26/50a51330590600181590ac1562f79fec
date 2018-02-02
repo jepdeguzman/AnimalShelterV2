@@ -1,0 +1,43 @@
+package com.corejava.io;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class QuickExercise {
+	
+	public double totalBill;
+	
+	public static void main(String[] args) throws IOException {
+		
+		File groceryFile = new File("C:\\Users\\Jeremy De Guzman\\Documents\\groceries.txt");
+		File totalBillfile = new File("C:\\Users\\Jeremy De Guzman\\Documents\\totalBill.txt");
+		System.out.println(groceryFile.exists());
+		
+		try {
+			PrintWriter writer = new PrintWriter(totalBillfile);
+			FileReader groceryReader  = new FileReader(groceryFile);
+			BufferedReader in = new BufferedReader(groceryReader);
+			String groceryString;
+		       while ((groceryString = in.readLine()) != null) {
+		           System.out.println(groceryString);
+		         }
+		         in.close();
+		         
+		         
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//split("|") = String[];
+		
+		
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.animalshelterv2.beans;
+
+public class ASAV2_dog extends ASAV2_data{
+
+}

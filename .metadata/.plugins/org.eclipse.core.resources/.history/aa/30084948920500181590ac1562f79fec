@@ -1,0 +1,28 @@
+package com.employeeapp.data;
+
+import com.employeeapp.data.EmployeeAppData;
+import com.employeeapp.ui.EmployeeAppUI;
+
+public class EmployeeApp_DoWork {
+	EmployeeAppUI empAppUI = new EmployeeAppUI();
+	
+	public void doWork(EmployeeAppData[] employeeMainArray) {
+		for(int kawnter = 0; kawnter < employeeMainArray.length; kawnter++) {
+			if(employeeMainArray[kawnter] == null) {
+				if(kawnter == 0) {
+					System.out.println("PLEASE ADD EMPLOYEES BEFORE ADDING WORK HOURS");
+					empAppUI.mt_displayCreateEmployeeMenu();
+				}else {
+					if(employeeMainArray[kawnter].employeeType.equalsIgnoreCase("HR")) {
+						employeeMainArray[kawnter].HOURS_WORKED = employeeMainArray[kawnter].HOURS_WORKED + 8.00;
+					}else {
+						employeeMainArray[kawnter].HOURS_WORKED = employeeMainArray[kawnter].HOURS_WORKED + 6.50;
+					}
+					
+				}
+			}
+			System.out.println("DONE.");
+			empAppUI.mt_displayMainMenu();
+		}
+	}
+}

@@ -1,0 +1,11 @@
+package com.employeeapp.data;
+
+public class EmployeeApp_ComputeSalary {
+	
+	public void computeSalary(EmployeeAppData[] employeeMainArray) {
+		for (int kownter = 0; kownter < employeeMainArray.length; kownter++) {
+			
+		}
+	}
+
+}

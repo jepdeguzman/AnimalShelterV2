@@ -1,0 +1,67 @@
+package com.animalshelterv2.manager;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.animalshelterv2.beans.ASAV2_data;
+import com.animalshelterv2.beans.ASAV2_dog;
+import com.animalshelterv2.ui.ASAV2_UI;
+
+public class ASAV2_manager extends ASAV2_data {
+	
+	public static int counter = 0;
+	static ASAV2_UI asav2_ui = new ASAV2_UI();
+	static ASAV2_dog asav2_dog = new ASAV2_dog();
+
+	
+	public static void mt_addDog(){
+		
+		if(counter < 5) {
+			System.out.print("ENTER DOG'S NAME: ");
+			Scanner scanDogName = new Scanner(System.in);
+			asav2_dog.animalName = scanDogName.next();
+			
+			System.out.print("ENTER DOG'S AGE: ");
+			Scanner scanDogAge = new Scanner(System.in);
+			asav2_dog.animalAge = scanDogAge.nextInt();
+
+			
+			System.out.print("ENTER DOG'S GENDER: ");
+			Scanner scanDogGender = new Scanner(System.in);
+			asav2_dog.animalGender = scanDogGender.next();
+			
+			
+			counter++;
+			asav2_dog.animalSerialNumber = counter;
+			mt_addDogToMap();
+			System.out.println("COUNTER CHECKER: "+counter);
+/*			System.out.println("MAP STILL EMPTY? "+asav2_ui.catShelterMap.isEmpty());*/
+			
+			System.out.println("\nSUCCESSFULLY ADDED A DOG!");
+			System.out.println("WELCOME, "+asav2_dog.animalName+"!");
+			System.out.println("SERIAL NUMBER: "+asav2_dog.animalSerialNumber);
+			System.out.println("AGE: "+asav2_dog.animalAge);
+			System.out.println("GENDER: "+asav2_dog.animalGender);
+			
+			asav2_ui.mt_displayDogShelterMenu();
+		}else if(counter == 5) {
+			System.out.println("---");
+			System.out.println("DOG SHELTER IS NOW FULL!");
+		}
+	}
+	
+	public static Collection<String> mt_addDogToMap() {
+		asav2_ui.dogShelterMap.put(asav2_dog.animalSerialNumber, asav2_dog.animalSerialNumber+": arf arf arf! Hi! I'm "+asav2_dog.animalName+"! I'm a "+asav2_dog.animalAge+" year/s old "+asav2_dog.animalGender);
+		return asav2_ui.dogShelterMap.values();
+	}
+	
+	//public static String putAnimalInMap(String animal) {
+		
+		//animalShelterMap.put(counter, animalName(null));
+		
+		//return animalShelterMap;
+	//}
+
+}

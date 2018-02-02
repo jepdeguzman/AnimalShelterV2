@@ -1,0 +1,12 @@
+INDEX VERSION 1.130+C:\Users\Jeremy De Guzman\Documents\Core Java\JAVA JEP\.metadata\.plugins\org.eclipse.jdt.core
+1682073783.index
+2329074593.index
+967235388.index
+3849959705.index
+3034508698.index
+195614750.index
+2852873731.index
+2506192191.index
+4254707024.index
+1564452491.index
+2308809998.index

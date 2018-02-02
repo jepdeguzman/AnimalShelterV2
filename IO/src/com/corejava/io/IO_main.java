@@ -1,0 +1,44 @@
+package com.corejava.io;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class IO_main {
+	public static void main(String[] args) {
+	File file = new File("C:\\Users\\Jeremy De Guzman\\Documents\\sample.txt");
+	System.out.println(file.exists());
+	
+	
+	
+	try {
+		Scanner input = new Scanner(file);
+		
+/*		while(input.hasNext()) {
+		System.out.println(input.nextLine());
+		}*/
+	
+		System.out.println(input.findInLine("HELLO"));
+
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+/*	try {
+		PrintWriter writer = new PrintWriter(file);
+		
+		writer.println("HELLO WORLD");
+		writer.println("WTFFFFFFFFFFFFFFFFFFFFFFFF");
+		
+		writer.append("HI WORLD");
+		
+		writer.flush();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}*/
+	}
+}

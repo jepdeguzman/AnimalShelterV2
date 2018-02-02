@@ -1,0 +1,27 @@
+package com.animalshelterv2.main;
+
+import org.apache.log4j.Logger;
+
+import com.animalshelterv2.ui.ASAV2_UI;
+
+public class ASAV2_Main {
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		Logger myLogger = Logger.getLogger(ASAV2_Main.class);
+		ASAV2_UI asav2_ui = new ASAV2_UI();
+		asav2_ui.mt_displayHomePage();
+	}
+
+}
+
+/*		int x = 0;
+while(x<15) {
+myLogger.trace("Trace Message!");
+myLogger.debug("Debug Message!");
+myLogger.info("Info Message!");
+myLogger.warn("Warn Message!");
+myLogger.error("Error Message!");
+myLogger.fatal("Fatal Message!");
+x++;
+}*/

@@ -1,0 +1,258 @@
+package com.animalshelterv2.manager;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+import com.animalshelterv2.beans.ASAV2_data;
+import com.animalshelterv2.beans.ASAV2_dog;
+import com.animalshelterv2.beans.ASAV2_parrot;
+import com.animalshelterv2.beans.ASAV2_cat;
+import com.animalshelterv2.ui.ASAV2_UI;
+
+public class ASAV2_manager extends ASAV2_data {
+	
+	public static int dogCounter = 0;
+	public static int catCounter = 0;
+	public static int parCounter = 0;
+	static ASAV2_UI asav2_ui = new ASAV2_UI();
+	static ASAV2_dog asav2_dog = new ASAV2_dog();
+	static ASAV2_cat asav2_cat = new ASAV2_cat();
+	static ASAV2_parrot asav2_par = new ASAV2_parrot();
+
+	//DOG METHODS
+	public static void mt_addDog(){
+		
+		if(dogCounter < 5) {
+			System.out.print("ENTER DOG'S NAME: ");
+			Scanner scanDogName = new Scanner(System.in);
+			asav2_dog.animalName = scanDogName.next();
+			
+			System.out.print("ENTER DOG'S AGE: ");
+			Scanner scanDogAge = new Scanner(System.in);
+			asav2_dog.animalAge = scanDogAge.nextInt();
+
+			
+			System.out.print("ENTER DOG'S GENDER: ");
+			Scanner scanDogGender = new Scanner(System.in);
+			asav2_dog.animalGender = scanDogGender.next();
+			
+			
+			dogCounter++;
+			asav2_dog.animalSerialNumber = dogCounter;
+			mt_addDogToMap();
+			System.out.println("COUNTER CHECKER: "+dogCounter);
+			
+			System.out.println("\nSUCCESSFULLY ADDED A DOG!");
+			System.out.println("WELCOME, "+asav2_dog.animalName+"!");
+			System.out.println("SERIAL NUMBER: "+asav2_dog.animalSerialNumber);
+			System.out.println("AGE: "+asav2_dog.animalAge);
+			System.out.println("GENDER: "+asav2_dog.animalGender);
+			
+			asav2_ui.mt_displayDogShelterMenu();
+		}else if(dogCounter == 5) {
+			asav2_ui.mt_displayDogFullMenu();
+			Scanner scanDogFullChoice = new Scanner(System.in);
+			int dogFullChoice = scanDogFullChoice.nextInt();
+				if(dogFullChoice == 1) {
+					mt_viewDogShelter();
+					asav2_ui.mt_displayDogShelterMenu();
+				}else if(dogFullChoice == 2) {
+					//do delete
+				}else if(dogFullChoice == 0) {
+					asav2_ui.mt_displayDogShelterMenu();
+				}else {
+					System.out.println("INVLD INPT");
+					asav2_ui.mt_displayHomePage();
+				}
+		}
+	}
+	
+	public static Collection<String> mt_addDogToMap() {
+		asav2_ui.dogShelterMap.put(asav2_dog.animalSerialNumber, asav2_dog.animalSerialNumber+": arf arf arf! Hi! I'm "+asav2_dog.animalName+"! I'm a "+asav2_dog.animalAge+" year old "+asav2_dog.animalGender+" dog!");
+		return asav2_ui.dogShelterMap.values();
+	}
+	
+	public static Iterator<Entry<Integer, String>> mt_viewDogShelter() {
+		
+		System.out.println("---");
+		Iterator<Map.Entry<Integer, String>> iteratorDogMap = asav2_ui.dogShelterMap.entrySet().iterator();
+		while (iteratorDogMap.hasNext()) {
+			Map.Entry<Integer, String> pair = iteratorDogMap.next();
+			System.out.print(pair.getValue());
+			System.out.println();
+		}
+		
+		System.out.println("---");
+		return iteratorDogMap;
+	}
+	
+	public static Map<Integer, String> mt_removeDog() {
+		Scanner scanDogSN = new Scanner(System.in);
+		int dogSN = scanDogSN.nextInt();
+		asav2_ui.dogShelterMap.remove(dogSN);
+		mt_viewDogShelter();
+		return asav2_ui.dogShelterMap;
+	}
+
+	
+//-----------------------------------------------------------------------------------
+	//CAT METHODS
+	public static void mt_addCat(){
+		
+		if(catCounter  < 5) {
+			System.out.print("ENTER CAT'S NAME: ");
+			Scanner scanCatName = new Scanner(System.in);
+			asav2_cat.animalName = scanCatName.next();
+			
+			System.out.print("ENTER CAT'S AGE: ");
+			Scanner scanCatAge = new Scanner(System.in);
+			asav2_cat.animalAge = scanCatAge.nextInt();
+
+			
+			System.out.print("ENTER CAT'S GENDER: ");
+			Scanner scanCatGender = new Scanner(System.in);
+			asav2_cat.animalGender = scanCatGender.next();
+			
+			catCounter ++;
+			
+			asav2_cat.animalSerialNumber = catCounter ;
+			mt_addCatToMap();
+			System.out.println("COUNTER CHECKER: "+catCounter );
+/*			System.out.println("MAP STILL EMPTY? "+asav2_ui.catShelterMap.isEmpty());*/
+			
+			System.out.println("\nSUCCESSFULLY ADDED A CAT!");
+			System.out.println("WELCOME, "+asav2_cat.animalName+"!");
+			System.out.println("SERIAL NUMBER: "+asav2_cat.animalSerialNumber);
+			System.out.println("AGE: "+asav2_cat.animalAge);
+			System.out.println("GENDER: "+asav2_cat.animalGender);
+			
+			asav2_ui.mt_displayCatShelterMenu();
+		}else if(catCounter  == 5) {
+			asav2_ui.mt_displayCatFullMenu();
+			Scanner scanCatFullChoice = new Scanner(System.in);
+			int catFullChoice = scanCatFullChoice.nextInt();
+				if(catFullChoice == 1) {
+					mt_viewCatShelter();
+					asav2_ui.mt_displayCatShelterMenu();
+				}else if(catFullChoice == 2) {
+					//do delete
+				}else if(catFullChoice == 0) {
+					asav2_ui.mt_displayCatShelterMenu();
+				}else {
+					System.out.println("INVLD INPT");
+					asav2_ui.mt_displayHomePage();
+				}
+		}
+	}
+	
+	public static Collection<String> mt_addCatToMap() {
+		asav2_ui.catShelterMap.put(asav2_cat.animalSerialNumber, asav2_cat.animalSerialNumber+": meow meow.. Hi! I'm "+asav2_cat.animalName+"! I'm a "+asav2_cat.animalAge+" year old "+asav2_cat.animalGender+" cat!");
+		return asav2_ui.catShelterMap.values();
+	}
+	
+	public static Iterator<Entry<Integer, String>> mt_viewCatShelter() {
+		
+		System.out.println("---");
+		Iterator<Map.Entry<Integer, String>> iteratorCatMap = asav2_ui.catShelterMap.entrySet().iterator();
+		while (iteratorCatMap.hasNext()) {
+			Map.Entry<Integer, String> pair = iteratorCatMap.next();
+			System.out.print(pair.getValue());
+			System.out.println();
+		}
+		
+		System.out.println("---");
+		return iteratorCatMap;
+	}
+	
+	public static Map<Integer, String> mt_removeCat() {
+		Scanner scanCatSN = new Scanner(System.in);
+		int catSN = scanCatSN.nextInt();
+		asav2_ui.dogShelterMap.remove(catSN);
+		mt_viewCatShelter();
+		return asav2_ui.catShelterMap;
+	}
+	
+	
+//-----------------------------------------------------------------------------------
+	//PARROT METHODS
+	public static void mt_addPar(){
+		
+		if(parCounter < 5) {
+			System.out.print("ENTER PARROT'S NAME: ");
+			Scanner scanParName = new Scanner(System.in);
+			asav2_par.animalName = scanParName.next();
+			
+			System.out.print("ENTER PARROT'S AGE: ");
+			Scanner scanParAge = new Scanner(System.in);
+			asav2_par.animalAge = scanParAge.nextInt();
+
+			
+			System.out.print("ENTER PARROT'S GENDER: ");
+			Scanner scanParGender = new Scanner(System.in);
+			asav2_par.animalGender = scanParGender.next();
+			
+			
+			parCounter++;
+			asav2_par.animalSerialNumber = parCounter;
+			mt_addParToMap();
+			System.out.println("COUNTER CHECKER: "+parCounter);
+/*			System.out.println("MAP STILL EMPTY? "+asav2_ui.catShelterMap.isEmpty());*/
+			
+			System.out.println("\nSUCCESSFULLY ADDED A PARROT!");
+			System.out.println("WELCOME, "+asav2_par.animalName+"!");
+			System.out.println("SERIAL NUMBER: "+asav2_par.animalSerialNumber);
+			System.out.println("AGE: "+asav2_par.animalAge);
+			System.out.println("GENDER: "+asav2_par.animalGender);
+			
+			asav2_ui.mt_displayParShelterMenu();
+		}else if(parCounter == 5) {
+			asav2_ui.mt_displayParFullMenu();
+			Scanner scanParFullChoice = new Scanner(System.in);
+			int parFullChoice = scanParFullChoice.nextInt();
+				if(parFullChoice == 1) {
+					mt_viewParShelter();
+					asav2_ui.mt_displayParShelterMenu();
+				}else if(parFullChoice == 2) {
+					//do delete
+				}else if(parFullChoice == 0) {
+					asav2_ui.mt_displayParShelterMenu();
+				}else {
+					System.out.println("INVLD INPT");
+					asav2_ui.mt_displayHomePage();
+				}
+		}
+	}
+	
+	public static Collection<String> mt_addParToMap() {
+		asav2_ui.parShelterMap.put(asav2_par.animalSerialNumber, asav2_par.animalSerialNumber+": kru kru kru! Hi! I'm "+asav2_par.animalName+"! I'm a "+asav2_par.animalAge+" year old "+asav2_par.animalGender+" parrot!");
+		return asav2_ui.parShelterMap.values();
+	}
+	
+	public static Iterator<Entry<Integer, String>> mt_viewParShelter() {
+		
+		System.out.println("---");
+		Iterator<Map.Entry<Integer, String>> iteratorParMap = asav2_ui.parShelterMap.entrySet().iterator();
+		while (iteratorParMap.hasNext()) {
+			Map.Entry<Integer, String> pair = iteratorParMap.next();
+			System.out.print(pair.getValue());
+			System.out.println();
+		}
+		
+		System.out.println("---");
+		return iteratorParMap;
+	}
+	
+	public static Map<Integer, String> mt_removePar() {
+		Scanner scanParSN = new Scanner(System.in);
+		int parSN = scanParSN.nextInt();
+		asav2_ui.parShelterMap.remove(parSN);
+		mt_viewParShelter();
+		return asav2_ui.parShelterMap;
+	}
+	
+
+}
